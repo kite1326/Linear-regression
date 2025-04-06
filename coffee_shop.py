@@ -5,7 +5,7 @@ df = pd.read_csv(r"C:\Users\Kiet\Downloads\coffee_shop_revenue.csv")
 matrix = df.to_numpy()
 
 X = matrix[:, :matrix.shape[1] -1]
-y = matrix[:, matrix.shape[1] - 1]
+y = matrix[:, matrix.shape[1] - 1].reshape(-1, 1)
 
 X[:,0]/=500
 X[:,1]/=10
@@ -41,5 +41,5 @@ def GD(w_init, grad, eta):
     return (w, it)
 w_init = np.array([[-1517],[ 2783],[ 2432],[-4],[-34 ],[777],[24]])
 (w1, it1) = GD(w_init, grad, 0.0001)
-print('Solution found by GD: w = ', w1, ',\nafter %d iterations.' %(it1+1))
+print('Trong so w = ', w1, ',\nsau %d vong lap' %(it1+1))
 
